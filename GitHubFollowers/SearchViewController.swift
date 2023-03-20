@@ -25,8 +25,6 @@ class SearchViewController: UIViewController {
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     navigationController?.isNavigationBarHidden = true
-//    self.tabBarController?.tabBar.isHidden = true
-//    self.extendedLayoutIncludesOpaqueBars = true
   }
   
   func configureLogoImageView() {

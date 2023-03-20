@@ -16,11 +16,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     guard let windowScene = (scene as? UIWindowScene) else { return }
     
-    let searchNavController = UINavigationController(rootViewController: SearchViewController())
-    let favoriteNavController = UINavigationController(rootViewController: FavoriteListViewController())
-    
- 
-    
     window = UIWindow(frame: windowScene.coordinateSpace.bounds)
     window?.windowScene = windowScene
     window?.rootViewController = createTabBar()
