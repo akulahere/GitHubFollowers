@@ -65,10 +65,10 @@
 				66B668E229C4846C000A867B /* GFButton.swift */,
 				66B668E429C4873E000A867B /* GFTextField.swift */,
 				66B668BE29C3292C000A867B /* SearchViewController.swift */,
+				66B668C029C32958000A867B /* FavoriteListViewController.swift */,
 				66B668B329C30D47000A867B /* Assets.xcassets */,
 				66B668B529C30D47000A867B /* LaunchScreen.storyboard */,
 				66B668B829C30D47000A867B /* Info.plist */,
-				66B668C029C32958000A867B /* FavoriteListViewController.swift */,
 			);
 			path = GitHubFollowers;
 			sourceTree = "<group>";
