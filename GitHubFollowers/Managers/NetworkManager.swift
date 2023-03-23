@@ -27,10 +27,12 @@ class NetworkManager {
     let task = URLSession.shared.dataTask(with: url) { data, response, error in
       if error != nil {
         completed(.failure(.unableToComplete))
+        print(error.debugDescription)
       }
       
       guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
         completed(.failure(.unableToComplete))
+        print("response")
         return
       }
       
