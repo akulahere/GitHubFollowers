@@ -19,7 +19,7 @@ class NetworkManager {
     page: Int,
     completed: @escaping(Result<[Follower], GFError>) -> Void
   ) {
-    let endpoint = baseUrl + username + "/followers?per_page=100&page=\(page)"
+    let endpoint = baseUrl + username + "/followers?per_page=10&page=\(page)"
     
     guard let url = URL(string: endpoint) else {
       completed(.failure(.invalidUsername))
