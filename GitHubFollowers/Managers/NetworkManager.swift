@@ -5,11 +5,13 @@
 //  Created by Dmytro Akulinin on 21.03.2023.
 //
 
-import Foundation
+import UIKit
 
 class NetworkManager {
   static let shared = NetworkManager()
   let baseUrl = "http://api.github.com/users/"
+  let cache = NSCache<NSString, UIImage>()
+  
   private init() {}
   
   func getFollowers(
