@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		660456C529DAC7DD0043CDE7 /* GFEmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 660456C429DAC7DD0043CDE7 /* GFEmptyStateView.swift */; };
 		66AF5CE229C8748300CDF784 /* GFTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66AF5CE129C8748300CDF784 /* GFTitleLabel.swift */; };
 		66AF5CE429C87C2000CDF784 /* GFBodyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66AF5CE329C87C2000CDF784 /* GFBodyLabel.swift */; };
 		66AF5CE629C87DF000CDF784 /* GFAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66AF5CE529C87DF000CDF784 /* GFAlertViewController.swift */; };
@@ -30,6 +31,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		660456C429DAC7DD0043CDE7 /* GFEmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFEmptyStateView.swift; sourceTree = "<group>"; };
 		66AF5CE129C8748300CDF784 /* GFTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFTitleLabel.swift; sourceTree = "<group>"; };
 		66AF5CE329C87C2000CDF784 /* GFBodyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFBodyLabel.swift; sourceTree = "<group>"; };
 		66AF5CE529C87DF000CDF784 /* GFAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFAlertViewController.swift; sourceTree = "<group>"; };
@@ -65,6 +67,55 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		660456BE29DAC78B0043CDE7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				660456C429DAC7DD0043CDE7 /* GFEmptyStateView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		660456BF29DAC7920043CDE7 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				66B668E229C4846C000A867B /* GFButton.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		660456C029DAC7980043CDE7 /* TextFields */ = {
+			isa = PBXGroup;
+			children = (
+				66B668E429C4873E000A867B /* GFTextField.swift */,
+			);
+			path = TextFields;
+			sourceTree = "<group>";
+		};
+		660456C129DAC79F0043CDE7 /* ImageViews */ = {
+			isa = PBXGroup;
+			children = (
+				66AF5D2629CAEC6100CDF784 /* GFAvatarImageView.swift */,
+			);
+			path = ImageViews;
+			sourceTree = "<group>";
+		};
+		660456C229DAC7A70043CDE7 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				66AF5CE529C87DF000CDF784 /* GFAlertViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		660456C329DAC7BA0043CDE7 /* Labels */ = {
+			isa = PBXGroup;
+			children = (
+				66AF5CE329C87C2000CDF784 /* GFBodyLabel.swift */,
+				66AF5CE129C8748300CDF784 /* GFTitleLabel.swift */,
+			);
+			path = Labels;
+			sourceTree = "<group>";
+		};
 		66AF5CE929C89BB500CDF784 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
@@ -78,13 +129,13 @@
 		66AF5CEA29C89BEA00CDF784 /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
+				660456C329DAC7BA0043CDE7 /* Labels */,
+				660456C229DAC7A70043CDE7 /* ViewControllers */,
+				660456C129DAC79F0043CDE7 /* ImageViews */,
+				660456C029DAC7980043CDE7 /* TextFields */,
+				660456BF29DAC7920043CDE7 /* Buttons */,
+				660456BE29DAC78B0043CDE7 /* Views */,
 				66AF5D2329CAEBC300CDF784 /* Cells */,
-				66B668E229C4846C000A867B /* GFButton.swift */,
-				66B668E429C4873E000A867B /* GFTextField.swift */,
-				66AF5CE129C8748300CDF784 /* GFTitleLabel.swift */,
-				66AF5CE329C87C2000CDF784 /* GFBodyLabel.swift */,
-				66AF5CE529C87DF000CDF784 /* GFAlertViewController.swift */,
-				66AF5D2629CAEC6100CDF784 /* GFAvatarImageView.swift */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -257,6 +308,7 @@
 				66B668E729C84830000A867B /* FollowerListViewController.swift in Sources */,
 				66AF5CE429C87C2000CDF784 /* GFBodyLabel.swift in Sources */,
 				66AF5CE229C8748300CDF784 /* GFTitleLabel.swift in Sources */,
+				660456C529DAC7DD0043CDE7 /* GFEmptyStateView.swift in Sources */,
 				66AF5CF429C9B67900CDF784 /* NetworkManager.swift in Sources */,
 				66B668BF29C3292C000A867B /* SearchViewController.swift in Sources */,
 				66B668AB29C30D47000A867B /* AppDelegate.swift in Sources */,
