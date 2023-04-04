@@ -11,9 +11,7 @@ struct User: Codable {
   let login: String
   let avatarURL: URL
   var name: String?
-//  let company: String
   var location: String?
-//  let email: String
   var bio: String?
   let publicRepos: Int
   let publicGists: Int
