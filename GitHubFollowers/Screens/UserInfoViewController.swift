@@ -12,7 +12,7 @@ protocol UserInfoViewControllerDelegate: UserInfoViewController {
   func didTapGetFollowers(for user: User)
 }
 
-class UserInfoViewController: UIViewController {
+class UserInfoViewController: GFDataLoadingVC {
   private let headerView = UIView()
   private let itemViewOne = UIView()
   private let itemViewTwo = UIView()
@@ -71,7 +71,7 @@ class UserInfoViewController: UIViewController {
     self.add(childVC: repoItemVC, to: self.itemViewTwo)
     self.add(childVC: GFUserInfoHeaderViewController(user: user), to: self.headerView)
     print()
-    self.dateLabel.text = "GitHub Since \(user.createdAt.convertToDisplayFormat().capitalized)"
+//    self.dateLabel.text = "GitHub Since \(user.createdAt.convertToMonthYearFormat())"
   }
   private func layoutUI() {
     let padding: CGFloat = 20
@@ -117,7 +117,7 @@ class UserInfoViewController: UIViewController {
 
 extension UserInfoViewController: UserInfoViewControllerDelegate {
   func didTapGitHubProfile(for user: User) {
-    let url = user.htmlURL
+    let url = user.htmlUrl
     presentSafariVC(with: url)
 
   }

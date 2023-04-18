@@ -11,7 +11,7 @@ protocol FollowerListViewControllerDelegate: FollowerListViewController {
   func didRequestFollowers(for username: String)
 }
 
-class FollowerListViewController: UIViewController {
+class FollowerListViewController: GFDataLoadingVC {
   enum Section {
     case main
   }
@@ -125,7 +125,7 @@ class FollowerListViewController: UIViewController {
       self?.dismissLoadingView()
       switch result {
         case .success(let user):
-          let favorite = Follower(login: user.login, avatarURL: user.avatarURL)
+          let favorite = Follower(login: user.login, avatarURL: user.avatarUrl)
           PersistenceManager.updateWith(favorite: favorite, actionType: .add) {[weak self] error in
             guard let error = error else {
               self?.presentGFAlertOnMainThread(title: "Success!", message: "User was added to favorite", buttonTitle: "Ok")
