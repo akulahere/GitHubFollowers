@@ -7,9 +7,10 @@
 
 import UIKit
 
+
+
 class GFItemInfoViewController: UIViewController {
   var user: User
-  weak var delegate: UserInfoViewControllerDelegate?
   let stackView = UIStackView()
   let itemInfoViewOne = GFItemInfoView()
   let itemInfoViewTwo = GFItemInfoView()

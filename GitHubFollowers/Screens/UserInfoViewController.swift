@@ -7,9 +7,8 @@
 
 import UIKit
 
-protocol UserInfoViewControllerDelegate: UserInfoViewController {
-  func didTapGitHubProfile(for user: User)
-  func didTapGetFollowers(for user: User)
+protocol UserInfoViewControllerDelegate: FollowerListViewController {
+  func didRequestFollowers(for username: String)
 }
 
 class UserInfoViewController: GFDataLoadingVC {
@@ -19,7 +18,7 @@ class UserInfoViewController: GFDataLoadingVC {
   private let dateLabel = GFBodyLabel(textAlignment: .center)
   private var itemViews: [UIView] = []
   
-  weak var delegate: FollowerListViewControllerDelegate?
+  weak var delegate: UserInfoViewControllerDelegate?
   
   var username: String
   
@@ -61,17 +60,14 @@ class UserInfoViewController: GFDataLoadingVC {
   }
   
   func configureUIElement(with user: User) {
-    let followerItemVC = GFFollowerViewController(user: user)
-    followerItemVC.delegate = self
-
-    let repoItemVC = GFRepoItemViewController(user: user)
-    repoItemVC.delegate = self
+    let followerItemVC = GFFollowerViewController(user: user, delegate: self)
+    let repoItemVC = GFRepoItemViewController(user: user, delegate: self)
 
     self.add(childVC: followerItemVC, to: self.itemViewOne)
     self.add(childVC: repoItemVC, to: self.itemViewTwo)
     self.add(childVC: GFUserInfoHeaderViewController(user: user), to: self.headerView)
     print()
-//    self.dateLabel.text = "GitHub Since \(user.createdAt.convertToMonthYearFormat())"
+    self.dateLabel.text = "GitHub Since \(user.createdAt.convertToMonthYearFormat())"
   }
   private func layoutUI() {
     let padding: CGFloat = 20
@@ -115,7 +111,7 @@ class UserInfoViewController: GFDataLoadingVC {
   }
 }
 
-extension UserInfoViewController: UserInfoViewControllerDelegate {
+extension UserInfoViewController: GFFollowerVCDelegate, GFRepoItemVCDelegate {
   func didTapGitHubProfile(for user: User) {
     let url = user.htmlUrl
     presentSafariVC(with: url)
