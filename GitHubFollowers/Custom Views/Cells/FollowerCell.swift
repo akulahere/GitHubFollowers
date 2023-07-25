@@ -23,15 +23,10 @@ class FollowerCell: UICollectionViewCell {
     fatalError("init(coder:) has not been implemented")
   }
   
-  func set(follower: Follower) {
-    usernameLabel.text = follower.login
-    NetworkManager.shared.downloadImage(from: follower.avatarURL) {[weak self] image in
-      guard let self = self else { return }
-      DispatchQueue.main.async {
-        self.avatarImageView.image = image
-      }
+    func set(follower: Follower) {
+        avatarImageView.downloadImage(fromURL: follower.avatarURL)
+        usernameLabel.text = follower.login
     }
-  }
   
   private func configure() {
     addSubview(avatarImageView)

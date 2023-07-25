@@ -45,15 +45,10 @@ class FavoriteCell: UITableViewCell {
   }
   
   
-  func set(favorite: Follower) {
-    usernameLabel.text = favorite.login
-    NetworkManager.shared.downloadImage(from: favorite.avatarURL) {[weak self] image in
-      guard let self = self else { return }
-      DispatchQueue.main.async {
-        self.avatarImageView.image = image
-      }
+    func set(favorite: Follower) {
+        avatarImageView.downloadImage(fromURL: favorite.avatarURL)
+        usernameLabel.text = favorite.login
     }
-  }
   
   
 

@@ -130,21 +130,31 @@ class FollowerListViewController: GFDataLoadingVC {
     
     @objc func addButtonTapped() {
         showLoadingView()
-        NetworkManager.shared.getUserInfo(for: username) {[weak self] result in
-            self?.dismissLoadingView()
-            switch result {
-                case .success(let user):
-                    let favorite = Follower(login: user.login, avatarURL: user.avatarUrl)
-                    PersistenceManager.updateWith(favorite: favorite, actionType: .add) {[weak self] error in
-                        guard let error = error else {
-                            self?.presentGFAlert(title: "Success!", message: "User was added to favorite", buttonTitle: "Ok")
-                            return
-                        }
-                        self?.presentGFAlert(title: "Something went wrong", message: error.rawValue, buttonTitle: "Ok")
-                    }
-                case .failure(let error):
-                    self?.presentGFAlert(title: "Something went wrong", message: error.rawValue, buttonTitle: "Ok")
+        
+        Task {
+            do {
+                let user = try await NetworkManager.shared.getUserInfo(for: username)
+                addUserToFavorites(user: user)
+                dismissLoadingView()
+            } catch {
+                if let gFerror = error as? GFError {
+                    presentGFAlert(title: "Something went wrong", message: gFerror.rawValue, buttonTitle: "Ok")
+                } else {
+                    presentDefaultError()
+                }
             }
+        }
+        
+    }
+    
+    func addUserToFavorites(user: User) {
+        let favorite = Follower(login: user.login, avatarURL: user.avatarUrl)
+        PersistenceManager.updateWith(favorite: favorite, actionType: .add) {[weak self] error in
+            guard let error = error else {
+                self?.presentGFAlert(title: "Success!", message: "User was added to favorite", buttonTitle: "Ok")
+                return
+            }
+            self?.presentGFAlert(title: "Something went wrong", message: error.rawValue, buttonTitle: "Ok")
         }
     }
 }
