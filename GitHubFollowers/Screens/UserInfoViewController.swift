@@ -56,7 +56,7 @@ class UserInfoViewController: GFDataLoadingVC {
             self.configureUIElement(with: user)
           }
         case .failure(let error):
-          self.presentGFAlertOnMainThread(title: "Something went wrong", message: error.rawValue, buttonTitle: "Ok")
+          self.presentGFAlert(title: "Something went wrong", message: error.rawValue, buttonTitle: "Ok")
       }
     }
   }
@@ -133,7 +133,7 @@ extension UserInfoViewController: GFFollowerVCDelegate, GFRepoItemVCDelegate {
   
   func didTapGetFollowers(for user: User) {
     guard user.followers != 0 else {
-      presentGFAlertOnMainThread(title: "No followers", message: "This use has no followers", buttonTitle: "So ad")
+      presentGFAlert(title: "No followers", message: "This use has no followers", buttonTitle: "So ad")
       return
     }
     delegate?.didRequestFollowers(for: user.login)
